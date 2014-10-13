@@ -1,0 +1,134 @@
+@import url(http://fonts.googleapis.com/css?family=Pompiere);
+
+@font-face {
+    font-family: AovelSans;
+    src: url(../fonts/ASans.ttf);
+}
+
+.beauty-font {
+    font-family: 'Pompiere', sans-serif;
+}
+
+/* 
+    Modal open causing the page to shift horizonatally fix 
+*/
+body {
+  padding-right: 0px !important
+}
+
+.modal-open {
+  overflow-y: auto;
+}
+
+/*
+    Custom Styling
+*/
+.cardinal {
+    background: #fc888a;
+    color:#fff;
+}
+
+/*
+    Social CTA
+    ----------
+*/
+
+.social-cta a, .social-cta{
+    color: #fff;
+    margin-top: 10px;
+}
+
+.facebook, .twitter {
+    color: #fff;
+    padding : 5px;
+    border-radius: 2px;
+}
+
+.facebook{
+    background-color: #3b5996;
+}
+
+.twitter {
+    background: #2fafde;
+}
+
+.notification {
+    border-radius: 10px;
+    background: #ff3b5b;
+    padding:4px;
+    margin:0 0 0 -5px;
+    width: 10px;
+}
+/* 
+    Stellar Quote 
+    -------------
+*/
+.stellar-quote {
+    margin:30px 0;
+}
+
+.slide {
+}
+
+.hand {
+    position: fixed;
+    bottom : 0;
+    right :100px;
+}
+
+.hand img {
+    height: 100%;
+    width: auto;
+}
+/*
+    CTA
+    ---
+*/
+.cta {
+}
+
+.cta .small-desc {
+    margin: 30px 0;
+}
+.cta .btn {
+    font-size: 1.4vw;
+    padding : 20px 0;
+    border-radius: 2px;
+}
+
+.cta a.btn.try {
+    color : #333;
+    background: #e0e0e0;
+}
+
+.cta a.btn.demand {
+    color:#fff;
+    background: #48cfa9;
+}
+
+
+/*
+    About
+    -----
+*/
+
+.about h4{
+    margin-top: 40px;
+}
+
+/* 
+    Media Queries 
+*/
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 480px) and (max-width : 992px) {
+    #hand {
+        height:200px;
+        width:auto;
+        right:10px;
+    }
+
+    .macbook {
+        margin-bottom: -6px;
+    }
+}
