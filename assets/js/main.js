@@ -61,6 +61,8 @@ $(function() {
       $laptop.css({
         'margin-bottom':'-10px'
       });
+
+      $slide.show();
     },
 
     change : function (imgSrc) {
@@ -130,6 +132,11 @@ $(function() {
   };
   ////////////////////
   var present = function present () {
+    var $cardinal = $('.cardinal');
+    $cardinal.css({
+      'background-color':'#333'
+    });
+
     Hand.ready();
     
     Hand.move.left();
@@ -137,7 +144,7 @@ $(function() {
     Hand.move.back();
 
     Hand.move.left();
-    Presentation.next().delay(3000);
+    Presentation.next();
     Hand.move.back();
 
   };

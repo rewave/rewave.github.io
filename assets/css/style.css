@@ -44,6 +44,10 @@ body {
     border-radius: 2px;
 }
 
+.facebook:hover, .twitter:hover {
+    color: #fff;
+}
+
 .facebook{
     background-color: #3b5996;
 }
@@ -56,8 +60,7 @@ body {
     border-radius: 10px;
     background: #ff3b5b;
     padding:4px;
-    margin:0 0 0 -5px;
-    width: 10px;
+    margin:0 0 0 -10px;
 }
 /* 
     Stellar Quote 
@@ -68,6 +71,7 @@ body {
 }
 
 .slide {
+    display: hidden;
 }
 
 .hand {
@@ -121,8 +125,8 @@ body {
 */
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 480px) and (max-width : 992px) {
-    #hand {
+@media only screen and (max-width : 992px) {
+    .hand {
         height:200px;
         width:auto;
         right:10px;
