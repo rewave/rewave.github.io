@@ -2,6 +2,9 @@
 
 <html lang="en">
   <head>
+    
+    <title>Hello from Rewave App</title>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,11 +13,8 @@
     <meta name="author" content="">
     <link rel="icon" href="">
 
-    <title>Hello from Rewave App</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="./assets/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -66,23 +66,29 @@
         </div>
 
         <div class="row stellar-quote">
-          <div class="col-xs-8 col-xs-push-2">
+          <div 
+            class="col-xs-12 col-md-8 col-md-push-2"
+          >
             <h2 class="text-center beauty-font">Great Artists Present With Style.</h2>
           </div>
         </div>
         
         <div class="laptop">
-            <div class="row">
-              <div class="col-xs-6 col-xs-push-3 macbook"> 
-                <img src="./assets/img/macbook.png" class="img-responsive" alt="">
-              </div>        
-            </div>
+          <div class="row">
+            <div 
+              class="col-xs-12 col-md-6 col-md-push-3 macbook"
+            > 
+              <img src="./assets/img/macbook.png" class="img-responsive" alt="">
+            </div>        
+          </div>
 
-            <div class="row">
-              <div class="col-xs-6 col-xs-push-3 slide"> 
-                <img src="./assets/img/slides/1.png" class="img-responsive" alt="">
-              </div>        
-            </div> 
+          <div class="row">
+            <div 
+              class="col-xs-12 col-md-6 col-md-push-3 slide"
+            > 
+              <img src="./assets/img/slides/1.png" class="img-responsive" alt="">
+            </div>        
+          </div> 
         </div>
 
       </div>
@@ -91,16 +97,22 @@
     <div class="container">
       
       <div class="row cta ">
-        <div class="col-xs-6 col-xs-push-3">
+        <div 
+          class="col-xs-12 col-md-6 col-md-push-3"
+        >
           <h3 class="text-center small-desc">
             So we are making an app that lets you control your powerpoint presentations using motion gestures.
           </h3>
           <div class="row">
-            <div class="col-xs-6">
+            <div 
+              class="col-xs-12 col-md-6"
+            >
               <a class="btn btn-lg col-xs-12 try" role="button">View Online Demo</a>
             </div>
-
-            <div class="col-xs-6">
+          
+            <div 
+              class="col-xs-12 col-md-6"
+            >
               <a class="btn btn-lg col-xs-12 demand" role="button" 
                  data-toggle="modal" data-target="#demand-modal"
               >Demand Early Access</a>
@@ -112,7 +124,9 @@
       
       <div class="about">
         <div class="row what-is-rewave">
-          <div class="col-xs-6 col-xs-push-3">
+          <div 
+            class="col-xs-12 col-md-6 col-md-push-3"
+          >
             <h4>What is Rewave ?</h4>
             <p>Glad you asked :)</p>
             <p>
@@ -125,7 +139,9 @@
         </div>
 
         <div class="row how-does-it-work">
-          <div class="col-xs-6 col-xs-push-3">
+          <div 
+            class="col-xs-12 col-md-6 col-md-push-3"
+          >
             <h4>How does it works ?</h4>
             <p>
               It connects with your computer running a small software called 'Rewave Server'. When you move your hand, out advanced motion detection algorithm recognises your motion as 'left wave' or 'right wave' and sends a signal to the server. The server then simulates a key press.
@@ -140,7 +156,9 @@
         </div>
 
         <div class="row team">
-          <div class="col-xs-6 col-xs-push-3">
+          <div 
+            class="col-xs-12 col-md-6 col-md-push-3"
+          >
             <h4>Who built this ?</h4>
             <div class="col-xs-4 text-center">
               <p><img class="img-responsive img-circle" src="./assets/img/divyanshu.jpg" alt=""></p>
@@ -163,53 +181,53 @@
       <footer>
         <p>© Rewave Labs 2014</p>
       </footer>
-  
-      <!--modals-->
 
-      <!--
-        * demand *
-      -->
-      <div 
-        class="modal fade" 
-        id="demand-modal" 
-      >
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Demand Access to Rewave Beta</h4>
-            </div>
-            <div class="modal-body">
-              <form id="demand-form">
-                <p>
-                  <label for="full-name">Full Name</label>
-                  <input class="form-control" type="text" id="full-name" placeholder="Sunny Deol">
-                </p>
-                <p>                        
-                  <label for="email">Email</label>
-                  <input class="form-control" type="text" id="email" placeholder="sunsunny@hotmail.com">
-                </p>
-                <hr/>
-                <div id="demand-feedback">
-                  <p class="text-danger hidden"></p>
-                  <p class="text-success hidden"></p>
-                </div>
-                <p>
-                  <input type="submit" class="btn btn-success btn-block">
-                </p>
-              </form>
-            </div>
+    </div> <!-- /container -->
+
+    <!--modals-->
+
+    <!--
+      * demand *
+    -->
+    <div 
+      class="modal fade" 
+      id="demand-modal" 
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Demand Access to Rewave Beta</h4>
+          </div>
+          <div class="modal-body">
+            <form id="demand-form">
+              <p>
+                <label for="full-name">Full Name</label>
+                <input class="form-control" type="text" id="full-name" placeholder="Sunny Deol">
+              </p>
+              <p>                        
+                <label for="email">Email</label>
+                <input class="form-control" type="text" id="email" placeholder="sunsunny@hotmail.com">
+              </p>
+              <hr/>
+              <div id="demand-feedback">
+                <p class="text-danger hidden"></p>
+                <p class="text-success hidden"></p>
+              </div>
+              <p>
+                <input type="submit" class="btn btn-success btn-block">
+              </p>
+            </form>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--
-        * hand *
-      -->
-      <div class="hand">
-        <img src="./assets/img/hand.png" alt="">
-      </div>
-
-    </div> <!-- /container -->
+    <!--
+      * hand *
+    -->
+    <div class="hand">
+      <img src="./assets/img/hand.png" alt="">
+    </div>
 
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>

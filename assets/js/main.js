@@ -62,7 +62,9 @@ $(function() {
         'margin-bottom':'-10px'
       });
 
-      $slide.show();
+      $slide.css({
+        visibility : 'visible'
+      });
     },
 
     change : function (imgSrc) {
@@ -85,6 +87,12 @@ $(function() {
       $hand.transit({
         y : 40,
         rotateX : '-=30deg'
+      }, 1000);
+    },
+    reset : function reset () {
+      $hand.transit({
+        y : '-=40',
+        rotateX : '+=30deg'
       }, 1000);
     },
     move : {
@@ -131,7 +139,7 @@ $(function() {
     }
   };
   ////////////////////
-  var present = function present () {
+  var present = function present (buttonElement) {
     var $cardinal = $('.cardinal');
     $cardinal.css({
       'background-color':'#333'
@@ -147,11 +155,14 @@ $(function() {
     Presentation.next();
     Hand.move.back();
 
+    Hand.reset();
+    buttonElement.text('View Online Demo')
+
   };
 
   $('.cta .try').click(function (ev) {
     $(this).text('• • •');
     ev.preventDefault();
-    present();
+    present($(this));
   });
 });
