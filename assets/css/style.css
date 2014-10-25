@@ -85,7 +85,7 @@ body {
 }
 
 .slide {
-    visibility: hidden;
+    display: hidden;
 }
 
 .hand {

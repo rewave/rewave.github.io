@@ -62,9 +62,7 @@ $(function() {
         'margin-bottom':'-10px'
       });
 
-      $slide.css({
-        visibility : 'visible'
-      });
+      $slide.fadeIn('slow');
     },
 
     change : function (imgSrc) {
@@ -122,17 +120,23 @@ $(function() {
   ////////////////////
   Presentation = {
     slides : [
-      '0 index fix hack',
       'assets/img/slides/1.png',
       'assets/img/slides/2.png',
+      'assets/img/slides/3.png',
+      'assets/img/slides/4.png',
+      'assets/img/slides/5.png',
     ], 
-    current : 1,
+    current : 0,
     next : function () {
       ++this.current < this.slides.length ? Slide.change(this.slides[this.current]) : --this.current ;
 
     }, 
     previous : function () {
       --this.current > 0 ? Slide.change(this.slides[this.current]) : ++this.current ;
+    },
+    reset : function () {
+      this.current = 0;
+      Slide.change(this.slides[this.current]);
     }
   };
   ////////////////////
@@ -163,7 +167,28 @@ $(function() {
         })
         .delay(2000)
         .transition(ht.move.right, 200, function () {
+          Presentation.previous();
+        })
+        .delay(2000)
+        .transition(ht.move.left, 200, function () {
           Presentation.next();
+        })
+        .delay(2000)
+        .transition(ht.move.back, 1000, 'ease')
+        .delay(2000)
+        .transition(ht.move.left, 400, function () {
+          Presentation.next();
+        })
+        .delay(2000)
+        .transition(ht.move.back, 1000, 'ease')
+        .delay(2000)
+        .transition(ht.move.left, 400, function () {
+          Presentation.next();
+        })
+        .delay(2000)
+        .transition(ht.move.back, 1000, 'ease')
+        .transition(ht.reset, 1000, function() {
+          Slide.reset();
         })
     ;
     $el.text('View Online Demo')
