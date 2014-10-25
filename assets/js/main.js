@@ -82,43 +82,40 @@ $(function() {
   });
   ////////////////////
   $hand = $('.hand');
-  Hand = {
-    ready : function ready () {
-      $hand.transit({
-        y : 40,
-        rotateX : '-=30deg'
-      }, 1000);
+
+  HandTransforms = {
+    
+    set : {
+      y : 40,
+      rotateX : '-=30deg'
     },
-    reset : function reset () {
-      $hand.transit({
-        y : '-=40',
-        rotateX : '+=30deg'
-      }, 1000);
+
+    reset : {
+      y : '-=40',
+      rotateX : '+=30deg'
     },
+
+
     move : {
-      left : function left () {
-        $hand.transit({
-          x : -0.5*$(window).width(),
-          y : 150,
-          rotate : "-=30deg",
-          rotateY : "+=15deg"
-        }, 400);
+      left : {
+        x : -0.5*$(window).width(),
+        y : 150,
+        rotate : "-=30deg",
+        rotateY : "+=15deg"
       },
-      right : function right () {
-        $hand.transit({
-          x : 0,
-          y : 40,
-          rotate : "+=30deg",
-          rotateY : "0deg"
-        }, 400);
+
+      back : {
+        x : 0,
+        y : 40,
+        rotate : "+=30deg",
+        rotateY : "0deg"
       },
-      back : function back () {
-        $hand.transit({
-          x : 0,
-          y : 40,
-          rotate : "+=30deg",
-          rotateY : "0deg"
-        }, 1200);
+
+      right : {
+        x : 0,
+        y : 40,
+        rotate : "+=30deg",
+        rotateY : "0deg"
       }
     },
   };
@@ -139,24 +136,37 @@ $(function() {
     }
   };
   ////////////////////
-  var present = function present (buttonElement) {
+  var present = function present ($el) {
+
+    $("html, body").animate({ scrollTop: 0 }, "slow").delay(500);
+    $hand.css({
+      visibility:'visible'
+    });
+
     var $cardinal = $('.cardinal');
     $cardinal.css({
       'background-color':'#333'
-    });
+    }, 800);
 
-    Hand.ready();
-    
-    Hand.move.left();
-    Presentation.next();
-    Hand.move.back();
+    var ht = HandTransforms;
 
-    Hand.move.left();
-    Presentation.next();
-    Hand.move.back();
-
-    Hand.reset();
-    buttonElement.text('View Online Demo')
+    $hand
+        .transition(ht.set, 1000)
+        .transition(ht.move.left, 400, function () {
+          Presentation.next();
+        })
+        .delay(2000)
+        .transition(ht.move.back, 1000, 'ease')
+        .delay(2000)
+        .transition(ht.move.left, 400, function () {
+          Presentation.next();
+        })
+        .delay(2000)
+        .transition(ht.move.right, 200, function () {
+          Presentation.next();
+        })
+    ;
+    $el.text('View Online Demo')
 
   };
 
