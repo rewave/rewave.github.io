@@ -59,7 +59,9 @@
             <sup class="notification text-center">11</sup>
 
             <a 
-              href="http://twitter.com/rewaveapp"target="_blank" 
+              href="http://twitter.com/rewaveapp"
+              target="_blank" 
+              data-toggle="modal" data-target="#twitter-follow-modal"
               class="twitter btn btn-xs"
             >
               Twitter
@@ -286,6 +288,22 @@
       </div>
     </div>
 
+    <div
+      class="modal fade"
+      id="twitter-follow-modal"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            Twitter
+          </div>
+          <div class="modal-body">
+            <a href="https://twitter.com/rewaveapp" class="twitter-follow-button" data-show-count="true">  Follow @rewaveapp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!--
       * hand *
@@ -326,6 +344,10 @@
          js.src = "//connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
     </script>
 
   </body>
