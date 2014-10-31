@@ -55,14 +55,14 @@ $(function() {
       } else {
         $slide.css({
           'margin-top':'-'+($slide.height()-8)+'px'
+        }, function () {
+          $slide.fadeIn('slow');
         });
       }
 
       $laptop.css({
         'margin-bottom':'-10px'
       });
-
-      $slide.fadeIn('slow');
     },
 
     change : function (imgSrc) {
