@@ -50,6 +50,7 @@
           <div class="social-cta text-right">
             <a 
               href="http://facebook.com/rewaveapp" 
+              data-toggle="modal" data-target="#fb-like-modal"
               target="_blank" 
               class="facebook btn btn-xs"
             >
@@ -88,7 +89,7 @@
             <div 
               class="col-xs-12 col-md-6 col-md-push-3 slide"
             > 
-              <img src="./assets/img/slides/1.png" class="img-responsive" alt="">
+              <img src="./assets/img/slides/3.png" class="img-responsive" alt="">
             </div>        
           </div> 
         </div>
@@ -109,13 +110,13 @@
             <div 
               class="col-xs-12 col-md-6"
             >
-              <a class="btn btn-lg col-xs-12 try" role="button">View Online Demo</a>
+              <a class="btn btn-lg col-xs-12 try">View Online Demo</a>
             </div>
           
             <div 
               class="col-xs-12 col-md-6"
             >
-              <a class="btn btn-lg col-xs-12 demand" role="button" 
+              <a class="btn btn-lg col-xs-12 demand"
                  data-toggle="modal" data-target="#demand-modal"
               >Demand Early Access</a>
             </div>
@@ -123,74 +124,38 @@
           </div>
         </div>
       </div>
+    </div> <!-- /container -->
       
-      <div class="about">
-        <div class="row what-is-rewave">
-          <div 
-            class="col-xs-12 col-md-6 col-md-push-3"
+    <div class="meta">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-xs-6 col-md-3 col-md-push-3"
           >
-            <h4>What is Rewave ?</h4>
-            <p>Glad you asked :)</p>
-            <p>
-              It's an app that connects with your computer and lets you control slides as you move your phone, giving you the ability to move freely (you don't need to stand infront of your computer to click a button) and present with style.
-            </p>
-            <p>
-              It's like a magic wand.
-            </p>
+            <ul class="list-inline">
+              <li><a href="#" data-toggle="modal" data-target="#about-modal">About</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#team-modal">Team</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#contact-modal">Contact</a></li>
+            </ul>
           </div>
-        </div>
-
-        <div class="row how-does-it-work">
-          <div 
-            class="col-xs-12 col-md-6 col-md-push-3"
+          <div
+            class="col-xs-6 col-md-3 col-md-offset-3 text-right" 
           >
-            <h4>How does it works ?</h4>
-            <p>
-              It connects with your computer running a small software called 'Rewave Server'. When you move your hand, out advanced motion detection algorithm recognises your motion as 'left wave' or 'right wave' and sends a signal to the server. The server then simulates a key press.
-            </p>
-            <p>
-              Ex. If left wave is detected, the server will know that you want to proceed to next slide and hence press the left key.
-            </p>
-            <p>
-              The key mapping approach allows us to extend this system to any presentation viewer : Google Docs, MS PPT, Slideshare, Rewave works with all.
-            </p>
-          </div>
-        </div>
-
-        <div class="row team">
-          <div 
-            class="col-xs-12 col-md-6 col-md-push-3"
-          >
-            <h4>Who built this ?</h4>
-            <div class="col-xs-4 text-center">
-              <p><img class="img-responsive img-circle" src="./assets/img/divyanshu.jpg" alt=""></p>
-              <p>Divyanshu Srivastava</p>
-            </div>
-            <div class="col-xs-4 text-center">
-              <p><img class="img-responsive img-circle" src="./assets/img/shivek.jpg" alt=""></p>
-              <p>Shivek Khurana</p>
-            </div>
-            <div class="col-xs-4 text-center">
-              <p><img class="img-responsive img-circle" src="./assets/img/prashant.jpg" alt=""></p>
-              <p>Prashant Sinha</p>
-            </div>
+            <a 
+              href="#" 
+              class=""
+              data-toggle="modal" 
+              data-target="#open-company-modal"
+            >
+              [ Open Company ]
+            </a>
           </div>
         </div>
       </div>
-
-      <hr>
-
-      <footer>
-        <p>© Rewave Labs 2014</p>
-      </footer>
-
-    </div> <!-- /container -->
+    </div>
 
     <!--modals-->
 
-    <!--
-      * demand *
-    -->
     <div 
       class="modal fade" 
       id="demand-modal" 
@@ -224,6 +189,104 @@
       </div>
     </div>
 
+    <div
+      class="modal fade"
+      id="about-modal"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            About 
+          </div>
+          <div class="modal-body text-justify">
+            <p>
+              Rewave is an app that connects with your computer and lets you control slides as you move your phone, giving you the ability to move freely (you don't need to stand infront of your computer to click a button) and present with style.
+            </p>
+            <p>
+              It's like a magic wand.
+            </p>
+            <p>
+              Google Docs, MS PPT, Slideshare, Rewave works with all.
+            </p>
+          </div>
+        </div>
+      </div>  
+    </div>
+
+    <div
+      class="modal fade"
+      id="team-modal"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body row">
+            <div class="col-xs-4 text-center">
+              <p><img class="img-responsive img-circle" src="./assets/img/divyanshu.jpg" alt=""></p>
+              <p>Divyanshu Srivastava</p>
+            </div>
+            <div class="col-xs-4 text-center">
+              <p><img class="img-responsive img-circle" src="./assets/img/shivek.jpg" alt=""></p>
+              <p>Shivek Khurana</p>
+            </div>
+            <div class="col-xs-4 text-center">
+              <p><img class="img-responsive img-circle" src="./assets/img/prashant.jpg" alt=""></p>
+              <p>Prashant Sinha</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="contact-modal"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            We are all ears, friend :)
+          </div>
+          <div class="modal-body">
+            hello@rewaveapp.com
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="open-company-modal"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            Open Company
+          </div>
+          <div class="modal-body">
+            Everthing that we build at Rewave is open source. Everything. 
+            <a href="http://github.com/rewave">Rewave's Github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="fb-like-modal"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            Facebook
+          </div>
+          <div class="modal-body">
+            <div class="fb-like" data-href="http://facebook.com/rewaveapp" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <!--
       * hand *
     -->
@@ -247,6 +310,23 @@
       ga('send', 'pageview');
     </script>
   
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '734206863300034',
+          xfbml      : true,
+          version    : 'v2.2'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 
   </body>
 </html>

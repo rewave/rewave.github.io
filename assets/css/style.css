@@ -1,12 +1,17 @@
-@import url(http://fonts.googleapis.com/css?family=Pompiere);
+/*
+    Fonts
+    -----
+*/
 
-@font-face {
-    font-family: AovelSans;
-    src: url(../fonts/ASans.ttf);
-}
+@import url(http://fonts.googleapis.com/css?family=Pompiere);
+@import url(http://fonts.googleapis.com/css?family=Gudea);
 
 .beauty-font {
     font-family: 'Pompiere', sans-serif;
+}
+
+body {
+    font-family: 'Gudea', sans-serif;
 }
 
 /*
@@ -47,7 +52,7 @@ body {
     ----------
 */
 
-.social-cta a, .social-cta{
+.social-cta a, .social-cta a:visited, .social-cta{
     color: #fff;
     margin-top: 10px;
 }
@@ -124,14 +129,22 @@ body {
 
 
 /*
-    About
+    Meta
     -----
 */
 
-.about h4{
-    margin-top: 40px;
+.meta {
+    margin-top: 20px;
 }
 
+.meta .row div{
+    /*tackle columns*/
+
+}
+
+.meta a {
+    color: #333;
+}
 
 /*
     Modals
@@ -142,10 +155,9 @@ body {
 }
 
 #demand-modal .btn {
-    background: #19a2ac;
-    border-color: #19a2ac;
+    background: #48cfa9;
+    border-color: #48cfa9;
 }
-
 
 /* 
     Media Queries 

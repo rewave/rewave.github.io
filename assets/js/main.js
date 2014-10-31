@@ -44,7 +44,7 @@ $(function() {
 
   ////////////////////
   Slide =   {
-    position : function position () {
+    set : function () {
       var $slide = $('.slide');
       var $laptop = $('.laptop');
 
@@ -73,11 +73,12 @@ $(function() {
     },
   };
 
-  Slide.position();
+  Slide.set();
 
   $(window).resize(function () {
-    Slide.position();
+    Slide.set();
   });
+
   ////////////////////
   $hand = $('.hand');
 
@@ -120,11 +121,11 @@ $(function() {
   ////////////////////
   Presentation = {
     slides : [
+      'assets/img/slides/5.png',
       'assets/img/slides/1.png',
       'assets/img/slides/2.png',
       'assets/img/slides/3.png',
       'assets/img/slides/4.png',
-      'assets/img/slides/5.png',
     ], 
     current : 0,
     next : function () {
@@ -188,7 +189,7 @@ $(function() {
         .delay(2000)
         .transition(ht.move.back, 1000, 'ease')
         .transition(ht.reset, 1000, function() {
-          Slide.reset();
+          Presentation.reset();
         })
     ;
     $el.text('View Online Demo')
