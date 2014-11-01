@@ -83,7 +83,6 @@ $(function() {
   $hand = $('.hand');
 
   HandTransforms = {
-    
     set : {
       y : 40,
       rotateX : '-=30deg'
@@ -144,10 +143,7 @@ $(function() {
   var present = function present ($el) {
 
     $("html, body").animate({ scrollTop: 0 }, "slow").delay(500);
-    $hand.css({
-      visibility:'visible'
-    });
-
+  
     var $cardinal = $('.cardinal');
     $cardinal.css({
       'background-color':'#333'
@@ -156,49 +152,68 @@ $(function() {
     var ht = HandTransforms;
 
     $hand
-        .transition(ht.set, 1000)
-        .transition(ht.move.left, 400, function () {
-          Presentation.next();
-        })
-        .delay(2000)
-        .transition(ht.move.back, 1000, 'ease')
-        .delay(2000)
-        .transition(ht.move.left, 400, function () {
-          Presentation.next();
-        })
-        .delay(2000)
-        .transition(ht.move.right, 200, function () {
-          Presentation.previous();
-        })
-        .delay(2000)
-        .transition(ht.move.left, 200, function () {
-          Presentation.next();
-        })
-        .delay(2000)
-        .transition(ht.move.back, 1000, 'ease')
-        .delay(2000)
-        .transition(ht.move.left, 400, function () {
-          Presentation.next();
-        })
-        .delay(2000)
-        .transition(ht.move.back, 1000, 'ease')
-        .delay(2000)
-        .transition(ht.move.left, 400, function () {
-          Presentation.next();
-        })
-        .delay(2000)
-        .transition(ht.move.back, 1000, 'ease')
-        .transition(ht.reset, 1000, function() {
-          Presentation.reset();
-        })
-    ;
-    $el.text('View Online Demo')
+      .fadeIn(1000, function() {
+        $hand
+          .transition(ht.set, 1000)
+          .transition(ht.move.left, 400, function () {
+            Presentation.next();
+          })
+          .delay(2000)
+          .transition(ht.move.back, 1000, 'ease')
+          .delay(2000)
+          .transition(ht.move.left, 400, function () {
+            Presentation.next();
+          })
+          .delay(2000)
+          .transition(ht.move.right, 200, function () {
+            Presentation.previous();
+          })
+          .delay(2000)
+          .transition(ht.move.left, 200, function () {
+            Presentation.next();
+          })
+          .delay(2000)
+          .transition(ht.move.back, 1000, 'ease')
+          .delay(2000)
+          .transition(ht.move.left, 400, function () {
+            Presentation.next();
+          })
+          .delay(2000)
+          .transition(ht.move.back, 1000, 'ease')
+          .delay(2000)
+          .transition(ht.move.left, 400, function () {
+            Presentation.next();
+          })
+          .delay(2000)
+          .transition(ht.move.back, 1000, 'ease')
+          .transition(ht.reset, 1000, function() {
+            Presentation.reset();
+            $el.text('View Online Demo');
+            $el.removeClass('active disabled');
+            $hand.fadeOut();
+            $('.demand')
+              .transition({ opacity: 0.5 })
+              .transition({ opacity: 1})
+              .transition({ opacity: 0.5 })
+              .transition({ opacity: 1})
+              .transition({ opacity: 0.5 })
+              .transition({ opacity: 1})
+            ;
+          })
+        ;
+    });
+  };
 
+  var interuptPresentation = function () {
+    $hand.stop();
   };
 
   $('.cta .try').click(function (ev) {
-    $(this).text('• • •');
-    ev.preventDefault();
-    present($(this));
+    if (!$(this).hasClass('active')){
+      $(this).addClass('active disabled'); 
+      $(this).text('• • •');
+      ev.preventDefault();
+      present($(this));
+    }
   });
 });

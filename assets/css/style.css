@@ -97,6 +97,7 @@ body {
     position: fixed;
     bottom : 0;
     right :100px;
+    display: none;
 }
 
 .hand img {
@@ -166,7 +167,6 @@ body {
 /* Small Devices, Tablets */
 @media only screen and (max-width : 992px) {
     .hand {
-        visibility: hidden;
         height:200px;
         width:auto;
         right:10px;
