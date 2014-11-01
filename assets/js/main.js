@@ -46,22 +46,21 @@ $(function() {
   Slide =   {
     set : function () {
       var $slide = $('.slide');
-      var $laptop = $('.laptop');
-
-      if ($(window).width() > 977) {
-        $slide.css({
-          'margin-top':'-'+$slide.height()+'px'
+      
+      $slide.ready(function () {
+        var $laptop = $('.laptop');
+        var moveUpBy = $slide.height();
+        if ($(window).width() <= 977) moveUpBy = moveUpBy-8;
+          
+        $slide.animate({
+          'margin-top':'-'+moveUpBy+'px'
+        }, 0, function () {
+          $slide.show();
         });
-      } else {
-        $slide.css({
-          'margin-top':'-'+($slide.height()-8)+'px'
-        }, function () {
-          $slide.fadeIn('slow');
-        });
-      }
 
-      $laptop.css({
-        'margin-bottom':'-10px'
+        $laptop.css({
+          'margin-bottom':'-10px'
+        });
       });
     },
 
@@ -74,7 +73,6 @@ $(function() {
   };
 
   Slide.set();
-
   $(window).resize(function () {
     Slide.set();
   });
