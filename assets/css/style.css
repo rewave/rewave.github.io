@@ -90,6 +90,7 @@ body {
 }
 
 .slide {
+    visibility: hidden
 }
 
 .hand {

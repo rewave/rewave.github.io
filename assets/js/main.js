@@ -55,7 +55,9 @@ $(function() {
         $slide.animate({
           'margin-top':'-'+moveUpBy+'px'
         }, 0, function () {
-          $slide.show();
+          $slide.css('visibility', 'visible').hide(0, function () {
+            $(this).fadeIn(1000);
+          });
         });
 
         $laptop.css({
