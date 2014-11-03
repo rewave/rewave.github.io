@@ -43,41 +43,22 @@ $(function() {
   });
 
   ////////////////////
+  $slide = $('.slide');
+  $laptop = $('.laptop');
+  
   Slide =   {
-    set : function () {
-      var $slide = $('.slide');
-      
-      $slide.ready(function () {
-        var $laptop = $('.laptop');
-        var moveUpBy = $slide.height();
-        if ($(window).width() <= 977) moveUpBy = moveUpBy-8;
-          
-        $slide.animate({
-          'margin-top':'-'+moveUpBy+'px'
-        }, 0, function () {
-          $slide.css('visibility', 'visible').hide(0, function () {
-            $(this).fadeIn(1000);
-          });
-        });
+    set : function () { 
+      $slide.css('margin-top', '-'+$slide.height()+'px'); 
 
-        $laptop.css({
-          'margin-bottom':'-10px'
-        });
+      $laptop.css({
+        'margin-bottom':'-10px'
       });
     },
 
-    change : function (imgSrc) {
-      var $slide = $('.slide');
-      var holder = $slide.find('img');
-
-      holder.attr('src', imgSrc);
+    change : function (slide) {
+      $slide.attr('src', slide.src);
     },
   };
-
-  Slide.set();
-  $(window).resize(function () {
-    Slide.set();
-  });
 
   ////////////////////
   $hand = $('.hand');
@@ -120,11 +101,11 @@ $(function() {
   ////////////////////
   Presentation = {
     slides : [
-      'assets/img/slides/5.png',
-      'assets/img/slides/1.png',
-      'assets/img/slides/2.png',
-      'assets/img/slides/3.png',
-      'assets/img/slides/4.png',
+      {'src':'assets/img/slides/5.png', 'tip':'Info Text'},
+      {'src':'assets/img/slides/1.png', 'tip':'Info Text'},
+      {'src':'assets/img/slides/2.png', 'tip':'Info Text'},
+      {'src':'assets/img/slides/3.png', 'tip':'Info Text'},
+      {'src':'assets/img/slides/4.png', 'tip':'Info Text'},
     ], 
     current : 0,
     next : function () {
@@ -191,21 +172,10 @@ $(function() {
             $el.text('View Online Demo');
             $el.removeClass('active disabled');
             $hand.fadeOut();
-            $('.demand')
-              .transition({ opacity: 0.5 })
-              .transition({ opacity: 1})
-              .transition({ opacity: 0.5 })
-              .transition({ opacity: 1})
-              .transition({ opacity: 0.5 })
-              .transition({ opacity: 1})
-            ;
+            $('.demand').addClass('animated tada');
           })
         ;
     });
-  };
-
-  var interuptPresentation = function () {
-    $hand.stop();
   };
 
   $('.cta .try').click(function (ev) {
@@ -216,4 +186,18 @@ $(function() {
       present($(this));
     }
   });
+
+  $('.stellar-quote').addClass('animated fadeInUp');
+  
+  Slide.set();
+  //one time animation
+  $slide.transition({
+    opacity: 1
+  }, 1000);
+
+  $(window).resize(function () {
+    console.log('set called');
+    Slide.set();
+  });
+
 });

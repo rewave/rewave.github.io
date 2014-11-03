@@ -3,7 +3,7 @@
     -----
 */
 
-@import url(http://fonts.googleapis.com/css?family=Pompiere);
+@import url(http://fonts.googleapis.com/css?family=Pompiere&text=Great%20Artists%20Present%20With%20Style.);
 @import url(http://fonts.googleapis.com/css?family=Gudea);
 
 .beauty-font {
@@ -87,10 +87,11 @@ body {
 */
 .stellar-quote {
     margin:30px 0;
+    opacity: 0;
 }
 
 .slide {
-    visibility: hidden
+    opacity: 0;
 }
 
 .hand {
@@ -152,12 +153,74 @@ body {
     ------
 */
 .modal-content{
+    background: rgba(255, 255, 255, 0.96);
     border-radius: 2px;
+}
+
+.modal-header {
+    text-align: center;
 }
 
 #demand-modal .btn {
     background: #48cfa9;
     border-color: #48cfa9;
+}
+
+/*
+    Animations
+    ----------
+*/
+.animated { 
+    -webkit-animation-duration: 1s; 
+    animation-duration: 1s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+} 
+
+@-webkit-keyframes tada { 
+    0% {-webkit-transform: scale(1);} 
+    10%, 20% {-webkit-transform: scale(0.9) rotate(-3deg);} 
+    30%, 50%, 70%, 90% {-webkit-transform: scale(1.1) rotate(3deg);} 
+    40%, 60%, 80% {-webkit-transform: scale(1.1) rotate(-3deg);} 
+    100% {-webkit-transform: scale(1) rotate(0);} 
+} 
+@keyframes tada { 
+    0% {transform: scale(1);} 
+    10%, 20% {transform: scale(0.9) rotate(-3deg);} 
+    30%, 50%, 70%, 90% {transform: scale(1.1) rotate(3deg);} 
+    40%, 60%, 80% {transform: scale(1.1) rotate(-3deg);} 
+    100% {transform: scale(1) rotate(0);} 
+} 
+.tada { 
+    -webkit-animation-name: tada; 
+    animation-name: tada; 
+}
+
+@-webkit-keyframes fadeInUp { 
+    0% { 
+        opacity: 0; 
+        -webkit-transform: translateY(20px); 
+    } 
+    100% { 
+        opacity: 1; 
+        -webkit-transform: translateY(0); 
+    } 
+} 
+
+@keyframes fadeInUp { 
+    0% { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    } 
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+
+.fadeInUp { 
+    -webkit-animation-name: fadeInUp; 
+    animation-name: fadeInUp; 
 }
 
 /* 

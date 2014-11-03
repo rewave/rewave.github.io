@@ -25,25 +25,6 @@
 </head>
 
   <body>
-    <!--
-      * navbar *
-    -->
-    <!-- <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Rewave App</a>
-        </div>
-      </div>
-    </div>
-     -->
-
-
     <div class="cardinal">
       <div class="container">
         <div class="row">
@@ -51,6 +32,7 @@
             <a 
               href="http://facebook.com/rewaveapp" 
               target="_blank" 
+              data-toggle="modal" data-target="#fb-like-modal"
               class="facebook btn btn-xs"
             >
               Facebook
@@ -83,16 +65,9 @@
               class="col-xs-12 col-md-6 col-md-push-3 macbook"
             > 
               <img src="./assets/img/macbook.png" class="img-responsive" alt="">
+              <img src="./assets/img/slides/3.png" class="slide img-responsive" alt="">
             </div>        
           </div>
-
-          <div class="row">
-            <div 
-              class="col-xs-12 col-md-6 col-md-push-3 slide"
-            > 
-              <img src="./assets/img/slides/3.png" class="img-responsive" alt="">
-            </div>        
-          </div> 
         </div>
 
       </div>
@@ -148,7 +123,7 @@
               data-toggle="modal" 
               data-target="#open-company-modal"
             >
-              [ Open Company ]
+             ☮pen
             </a>
           </div>
         </div>
@@ -221,17 +196,25 @@
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-body row">
-            <div class="col-xs-4 text-center">
-              <p><img class="img-responsive img-circle" src="./assets/img/divyanshu.jpg" alt=""></p>
-              <p>Divyanshu Srivastava</p>
+            <div class="col-xs-4 col-md-4 text-center">
+              <a href="http://github.com/divyanshusrivastava">
+                <p><img class="img-responsive img-circle" src="./assets/img/divyanshu.jpg" alt=""></p>
+                <p>Divyanshu Srivastava</p>
+              </a>
             </div>
-            <div class="col-xs-4 text-center">
-              <p><img class="img-responsive img-circle" src="./assets/img/shivek.jpg" alt=""></p>
-              <p>Shivek Khurana</p>
+
+            <div class="col-xs-4 col-md-4 text-center">
+              <a href="http://linkedin.com/in/shivekkhurana">
+                <p><img class="img-responsive img-circle" src="./assets/img/shivek.jpg" alt=""></p>
+                <p>Shivek Khurana</p>
+              </a>
             </div>
-            <div class="col-xs-4 text-center">
-              <p><img class="img-responsive img-circle" src="./assets/img/prashant.jpg" alt=""></p>
-              <p>Prashant Sinha</p>
+
+            <div class="col-xs-4 col-md-4 text-center">
+              <a href="https://www.facebook.com/prashantsinha007">
+                <p><img class="img-responsive img-circle" src="./assets/img/prashant.jpg" alt=""></p>
+                <p>Prashant Sinha</p>
+              </a>
             </div>
           </div>
         </div>
@@ -277,11 +260,11 @@
     >
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
-          <div class="modal-header">
-            Facebook
+          <div class="modal-header facebook">
+            Let's be friends at Facebook
           </div>
-          <div class="modal-body">
-            <div class="fb-like" data-href="http://facebook.com/rewaveapp" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+          <div class="modal-body"> 
+            <div class="fb-like" data-href="https://www.facebook.com/rewaveapp" data-layout="standard" data-action="like" data-show-faces="true" data-share="false" data-ref="rewave_website"></div>
           </div>
         </div>
       </div>
@@ -293,8 +276,8 @@
     >
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
-          <div class="modal-header">
-            Twitter
+          <div class="modal-header twitter">
+            Like us ? Hate us ? Follow us. Tweet us :) 
           </div>
           <div class="modal-body">
             <a href="https://twitter.com/rewaveapp" class="twitter-follow-button" data-show-count="true">  Follow @rewaveapp
@@ -317,6 +300,7 @@
     <script src="./assets/js/main.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+
     <script>
       if (window.location.host === 'rewaveapp.com'){
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -329,22 +313,15 @@
       }
     </script>
   
+    <div id="fb-root"></div>
     <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '734206863300034',
-          xfbml      : true,
-          version    : 'v2.2'
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=734206863300034&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <script>
