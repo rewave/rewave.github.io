@@ -3,7 +3,6 @@ $(function() {
   $slide = $('.slide');
   $laptop = $('.laptop');
   $hand = $('.hand');
-  isSlideSet = false;
   
   ////////////////////
   $('#demand-form').submit(function (ev) {
@@ -56,8 +55,6 @@ $(function() {
       $laptop.css({
         'margin-bottom':'-10px'
       });
-
-      setTimeout(function () { isSlideSet = true}, 0);
     },
 
     change : function (slide) {
@@ -124,7 +121,8 @@ $(function() {
       Slide.change(this.slides[this.current]);
     },
     switchOn : function () {
-      if (isSlideSet) {
+      if ($slide.css("margin-top")[0] === '-') {
+        //if negative margin is set i.e. Slide is set
         //one time animation
         $slide.transition({
           opacity: 1
