@@ -50,10 +50,10 @@ $(function() {
   
   Slide =   {
     set : function () { 
-      $slide.css('margin-top', '-'+$slide.height()+'px'); 
+      $slide.css('margin-top', '-'+$slide.height()+'px');
 
       $laptop.css({
-        'margin-bottom':'-10px'
+        'margin-bottom':'-'+0.03*$slide.height()+'px'
       });
     },
 
