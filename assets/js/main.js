@@ -1,5 +1,10 @@
 $(function() {
   
+  $slide = $('.slide');
+  $laptop = $('.laptop');
+  $hand = $('.hand');
+  isSlideSet = false;
+  
   ////////////////////
   $('#demand-form').submit(function (ev) {
     var $demandForm = $('#demand-form');
@@ -43,8 +48,6 @@ $(function() {
   });
 
   ////////////////////
-  $slide = $('.slide');
-  $laptop = $('.laptop');
   
   Slide =   {
     set : function () { 
@@ -53,6 +56,8 @@ $(function() {
       $laptop.css({
         'margin-bottom':'-10px'
       });
+
+      setTimeout(function () { isSlideSet = true}, 0);
     },
 
     change : function (slide) {
@@ -61,7 +66,6 @@ $(function() {
   };
 
   ////////////////////
-  $hand = $('.hand');
 
   HandTransforms = {
     set : {
@@ -118,6 +122,17 @@ $(function() {
     reset : function () {
       this.current = 0;
       Slide.change(this.slides[this.current]);
+    },
+    switchOn : function () {
+      if (isSlideSet) {
+        //one time animation
+        $slide.transition({
+          opacity: 1
+        }, 1000);
+      } else {
+        Slide.set();
+        setTimeout(Presentation.switchOn, 500); // retry after 1/2 seconds
+      }
     }
   };
   ////////////////////
@@ -190,13 +205,9 @@ $(function() {
   $('.stellar-quote').addClass('animated fadeInUp');
   
   Slide.set();
-  //one time animation
-  $slide.transition({
-    opacity: 1
-  }, 1000);
+  Presentation.switchOn();
 
   $(window).resize(function () {
-    console.log('set called');
     Slide.set();
   });
 
