@@ -58,7 +58,14 @@ $(function() {
     },
 
     change : function (slide) {
-      $slide.attr('src', slide.src);
+      // todo : add a touch of glitter here
+      $slide.transition({
+        opacity:0
+      }, 100, function() {
+        $slide.attr('src', slide.src).transition({
+          opacity:1
+        }, 200);
+      });
     },
   };
 
@@ -102,11 +109,11 @@ $(function() {
   ////////////////////
   Presentation = {
     slides : [
-      {'src':'assets/img/slides/5.png', 'tip':'Info Text'},
-      {'src':'assets/img/slides/1.png', 'tip':'Info Text'},
-      {'src':'assets/img/slides/2.png', 'tip':'Info Text'},
-      {'src':'assets/img/slides/3.png', 'tip':'Info Text'},
-      {'src':'assets/img/slides/4.png', 'tip':'Info Text'},
+      {'src':'assets/img/slides/logo.png', 'tip':'Info Text'},
+      {'src':'assets/img/slides/what.png', 'tip':'Info Text'},
+      {'src':'assets/img/slides/how.png', 'tip':'Info Text'},
+      {'src':'assets/img/slides/end.png', 'tip':'Info Text'},
+      // {'src':'assets/img/slides/4.png', 'tip':'Info Text'},
     ], 
     current : 0,
     next : function () {
@@ -144,7 +151,7 @@ $(function() {
     }, 800);
 
     var ht = HandTransforms;
-
+    $('.demand').removeClass('animated tada');
     $hand
       .fadeIn(1000, function() {
         $hand
@@ -174,17 +181,14 @@ $(function() {
           })
           .delay(2000)
           .transition(ht.move.back, 1000, 'ease')
-          .delay(2000)
-          .transition(ht.move.left, 400, function () {
-            Presentation.next();
-          })
-          .delay(2000)
-          .transition(ht.move.back, 1000, 'ease')
           .transition(ht.reset, 1000, function() {
             Presentation.reset();
             $el.text('View Online Demo');
             $el.removeClass('active disabled');
             $hand.fadeOut();
+            $cardinal.css({
+              'background-color':'#fc888a'
+            }, 800);
             $('.demand').addClass('animated tada');
           })
         ;
