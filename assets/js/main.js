@@ -209,14 +209,13 @@ $(function() {
   Slide.set();
   Presentation.switchOn();
 
+  // preload images
+  Presentation.slides.forEach(function(slide) {
+    (new Image()).src = 'http://' +  window.location.host + '/' + slide.src;
+  });
+
   $(window).resize(function () {
     Slide.set();
-    
-    // preload images
-    Presentation.slides.forEach(function(slide) {
-      (new Image()).src = slide.src;
-    });
-
   });
 
 });
