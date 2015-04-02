@@ -3,6 +3,27 @@ $(function() {
   $slide = $('.slide');
   $laptop = $('.laptop');
   $hand = $('.hand');
+
+  var track = {
+    viewDemoClicked: function () {
+      // console.log("view demo");
+      if (typeof(ga) !== "undefined") {
+        ga('send', 'event', 'button', 'click', 'viewed demo');
+      }
+    },
+    demandAccessClicked: function () {
+      // console.log("demand access");
+      if (typeof(ga) !== "undefined") {
+        ga('send', 'event', 'button', 'click', 'clicked demand access');
+      }
+    },
+    demandFormSubmitted: function () {
+      // console.log("demand submit");
+      if (typeof(ga) !== "undefined") {
+        ga('send', 'event', 'button', 'click', 'demanded access');
+      }
+    },
+  };
   
   ////////////////////
   $('#demand-form').submit(function (ev) {
@@ -23,6 +44,7 @@ $(function() {
       .done(function(resp) {
         if (resp.result == 'success') {  
           $demandForm.slideUp('fast', function () {
+            track.demandFormSubmitted();
             $(this)
               .parent()
               .hide()
@@ -144,7 +166,9 @@ $(function() {
   var present = function present ($el) {
 
     $("html, body").animate({ scrollTop: 0 }, "slow").delay(500);
-  
+    
+    track.viewDemoClicked();
+
     var $cardinal = $('.cardinal');
     $cardinal.css({
       'background-color':'#333'
@@ -202,6 +226,10 @@ $(function() {
       ev.preventDefault();
       present($(this));
     }
+  });
+
+  $('.demand').click(function() {
+    track.demandAccessClicked();
   });
 
   $('.stellar-quote').addClass('animated fadeInUp');
