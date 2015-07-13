@@ -88,8 +88,19 @@ $(function() {
             e.preventDefault();
           });
           $('#content').css('visibility', 'visible');
+          $('.nav_bar img')
+            .css('visibility', 'visible')
+            .addClass('animated fadeInUp')
         });
         $('footer').load('footer.html');
     }
-  })
+  });
+
+  // Vertical center aligning div
+  var vCenterAlign = function() {
+    var $container = $('.cardinal .container');
+    var divH = $container.innerHeight()/2;
+    var pageH = $(window).innerHeight()/2;
+    $container.css({'padding-top': (pageH-divH) + 'px'});
+  }
 });
