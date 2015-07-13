@@ -19,6 +19,16 @@ $(function() {
         ga('send', 'event', 'button', 'click', 'demanded access');
       }
     },
+    downloadServerClicked: function () {
+      if (typeof(ga) !== "undefined") {
+        ga('send', 'event', 'button', 'click', 'clicked download server');
+      }
+    },
+    downloadAppClicked: function () {
+      if (typeof(ga) !== "undefined") {
+        ga('send', 'event', 'button', 'click', 'clicked download app');
+      }
+    }
   };
   
   ////////////////////
@@ -103,4 +113,12 @@ $(function() {
     var pageH = $(window).innerHeight()/2;
     $container.css({'padding-top': (pageH-divH) + 'px'});
   }
+
+  $('.downloads .app').click(function() {
+    track.downloadAppClicked();
+  });
+
+  $('.downloads .server').click(function() {
+    track.downloadServerClicked();
+  })
 });
