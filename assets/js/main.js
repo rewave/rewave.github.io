@@ -1,9 +1,5 @@
 $(function() {
   
-  $slide = $('.slide');
-  $laptop = $('.laptop');
-  $hand = $('.hand');
-
   var track = {
     viewDemoClicked: function () {
       // console.log("view demo");
@@ -68,182 +64,32 @@ $(function() {
     ;
   });
 
-  ////////////////////
   
-  Slide =   {
-    set : function () { 
-      $slide.css('margin-top', '-'+$slide.height()+'px');
-
-      $laptop.css({
-        'margin-bottom':'-'+0.03*$slide.height()+'px'
-      });
-    },
-
-    change : function (slide) {
-      // todo : add a touch of glitter here
-      $slide.transition({
-        opacity:0
-      }, 100, function() {
-        $slide.attr('src', slide.src).transition({
-          opacity:1
-        }, 200);
-      });
-    },
-  };
-
-  ////////////////////
-
-  HandTransforms = {
-    set : {
-      y : 40,
-      rotateX : '-=30deg'
-    },
-
-    reset : {
-      y : '-=40',
-      rotateX : '+=30deg'
-    },
-
-
-    move : {
-      left : {
-        x : -0.5*$(window).width(),
-        y : 150,
-        rotate : "-=30deg",
-        rotateY : "+=15deg"
-      },
-
-      back : {
-        x : 0,
-        y : 40,
-        rotate : "+=30deg",
-        rotateY : "0deg"
-      },
-
-      right : {
-        x : 0,
-        y : 40,
-        rotate : "+=30deg",
-        rotateY : "0deg"
-      }
-    },
-  };
-  ////////////////////
-  Presentation = {
-    slides : [
-      {'src':'assets/img/slides/logo.png', 'tip':'Info Text'},
-      {'src':'assets/img/slides/what.png', 'tip':'Info Text'},
-      {'src':'assets/img/slides/how.png', 'tip':'Info Text'},
-      {'src':'assets/img/slides/end.png', 'tip':'Info Text'},
-      // {'src':'assets/img/slides/4.png', 'tip':'Info Text'},
-    ], 
-    current : 0,
-    next : function () {
-      ++this.current < this.slides.length ? Slide.change(this.slides[this.current]) : --this.current ;
-
-    }, 
-    previous : function () {
-      --this.current > 0 ? Slide.change(this.slides[this.current]) : ++this.current ;
-    },
-    reset : function () {
-      this.current = 0;
-      Slide.change(this.slides[this.current]);
-    },
-    switchOn : function () {
-      if ($slide.css("margin-top")[0] === '-') {
-        //if negative margin is set i.e. Slide is set
-        //one time animation
-        $slide.transition({
-          opacity: 1
-        }, 1000);
-      } else {
-        Slide.set();
-        setTimeout(Presentation.switchOn, 500); // retry after 1/2 seconds
-      }
-    }
-  };
-  ////////////////////
-  var present = function present ($el) {
-
-    $("html, body").animate({ scrollTop: 0 }, "slow").delay(500);
-    
-    track.viewDemoClicked();
-
-    var $cardinal = $('.cardinal');
-    $cardinal.css({
-      'background-color':'#333'
-    }, 800);
-
-    var ht = HandTransforms;
-    $('.demand').removeClass('animated tada');
-    $hand
-      .fadeIn(1000, function() {
-        $hand
-          .transition(ht.set, 1000)
-          .transition(ht.move.left, 400, function () {
-            Presentation.next();
-          })
-          .delay(2000)
-          .transition(ht.move.back, 1000, 'ease')
-          .delay(2000)
-          .transition(ht.move.left, 400, function () {
-            Presentation.next();
-          })
-          .delay(2000)
-          .transition(ht.move.right, 200, function () {
-            Presentation.previous();
-          })
-          .delay(2000)
-          .transition(ht.move.left, 200, function () {
-            Presentation.next();
-          })
-          .delay(2000)
-          .transition(ht.move.back, 1000, 'ease')
-          .delay(2000)
-          .transition(ht.move.left, 400, function () {
-            Presentation.next();
-          })
-          .delay(2000)
-          .transition(ht.move.back, 1000, 'ease')
-          .transition(ht.reset, 1000, function() {
-            Presentation.reset();
-            $el.text('View Online Demo');
-            $el.removeClass('active disabled');
-            $hand.fadeOut();
-            $cardinal.css({
-              'background-color':'#fc888a'
-            }, 800);
-            $('.demand').addClass('animated tada');
-          })
-        ;
-    });
-  };
-
-  $('.cta .try').click(function (ev) {
-    if (!$(this).hasClass('active')){
-      $(this).addClass('active disabled'); 
-      $(this).text('• • •');
-      ev.preventDefault();
-      present($(this));
-    }
-  });
-
   $('.demand').click(function() {
     track.demandAccessClicked();
   });
 
-  $('.stellar-quote').addClass('animated fadeInUp');
-  
-  Slide.set();
-  Presentation.switchOn();
+  var pages = {
+    'home': '/',
+    'about': '/about.html',
+    'faq': '/faq.html',
+    'contact': '/contact.html',
+    'engineering': '/engineering.html'
+  }
 
-  // preload images
-  Presentation.slides.forEach(function(slide) {
-    (new Image()).src = 'http://' +  window.location.host + '/' + slide.src;
-  });
-
-  $(window).resize(function () {
-    Slide.set();
-  });
-
+  Object.keys(pages).map(function(page) {
+    var path = window.location.pathname;
+    if (pages[page] == path) {
+        $('head').load('header.html');
+        $('.nav_bar').load('nav_bar.html', function() {
+          var $link = $('a[href^="' + page + '"]');
+          $link.addClass('active');
+          $link.click(function(e) {
+            e.preventDefault();
+          });
+          $('#content').css('visibility', 'visible');
+        });
+        $('footer').load('footer.html');
+    }
+  })
 });

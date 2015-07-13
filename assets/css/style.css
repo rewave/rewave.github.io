@@ -5,13 +5,14 @@
 
 @import url(http://fonts.googleapis.com/css?family=Pompiere&text=Great%20Artists%20Present%20With%20Style.);
 @import url(http://fonts.googleapis.com/css?family=Gudea);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 .beauty-font {
     font-family: 'Pompiere', sans-serif;
 }
 
 body {
-    font-family: 'Gudea', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /*
@@ -32,12 +33,68 @@ body {
   overflow-y: auto;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 /*
     Custom Styling
 */
 .cardinal {
-    background: #fc888a;
+    background: #317cde;
     color:#fff;
+    min-height: 100%;
+}
+
+.cardinal .container {
+    padding-top: 50px;
+}
+
+.phone img{
+}
+
+.stellar {
+    margin-top: 60px
+}
+
+.logo img{
+    max-height: 100px;
+}
+
+.downloads {
+    margin-top: 20px;
+}
+
+.downloads .app, .server{
+    background:#444;
+    padding: 6px 2px;
+    margin:5px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.downloads .app img, .downloads .server img {
+    max-height: 30px;
+}
+
+.downloads a, .downloads a:active, .downloads a:hover, .downloads a:visited {
+    color:#fff;
+    cursor: pointer;
+} 
+
+.stellar .desc {
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.stellar .nav {
+    margin-top: 20px;
+}
+
+.stellar .nav a{
+    color:#444;
 }
 
 /*
@@ -55,9 +112,7 @@ body {
 .top {
     margin-top: 10px;
 }
-.logo img{
-    max-height: 30px;
-}
+
 
 /*
     Social CTA
@@ -242,6 +297,36 @@ body {
 .fadeInUp { 
     -webkit-animation-name: fadeInUp; 
     animation-name: fadeInUp; 
+}
+
+/*
+    Pages
+*/
+
+
+/*
+    Nav Bar
+*/
+.nav_bar {
+    background: #317cde;
+    padding: 20px 0 10px;
+}
+
+.nav_bar a {
+    padding:5px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.nav_bar .active {
+    background: rgba(0, 0, 0, 0.1
+        );
+}
+
+.nav_bar img {
+    max-width: 30px;
+    float: left;
+    margin-top: -5px;
 }
 
 /* 
