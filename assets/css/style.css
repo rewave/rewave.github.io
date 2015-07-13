@@ -172,9 +172,19 @@ body {
     text-align: center;
 }
 
+#demand-modal {
+    background:#fff url('../img/puppy.jpg');    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #demand-modal .btn {
     background: #48cfa9;
     border-color: #48cfa9;
+}
+
+#demand-modal .modal-content {
+    opacity: 0.9;
 }
 
 /*
